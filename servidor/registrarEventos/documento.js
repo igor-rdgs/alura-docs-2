@@ -9,12 +9,11 @@ function registrarEventosDocumento(socket, io) {
     "selecionar_documento",
     async ({ nomeDocumento, nomeUsuario }, devolverTexto) => {
       console.log(nomeUsuario);
-
-      socket.join(nomeDocumento);
-
       const documento = await encontrarDocumento(nomeDocumento);
-
+      
       if (documento) {
+        socket.join(nomeDocumento);
+        
         devolverTexto(documento.texto);
       }
     }
