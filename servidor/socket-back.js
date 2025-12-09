@@ -8,7 +8,7 @@ import registrarEventosLogin from "./registrarEventos/login.js";
 import io from "./servidor.js";
 import autorizarUsuario from "./middlewares/autorizarUsuarios.js";
 
-  const nspUsuarios = io.of("/usuarios");
+const nspUsuarios = io.of("/usuarios");
 
 nspUsuarios.use(autorizarUsuario);
 
